@@ -1,0 +1,30 @@
+{
+  "name": "automation_testing_with_playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Playwright automation tests for SauceDemo website assessment",
+  "author": "",
+  "license": "ISC",
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "saucedemo",
+    "e2e"
+  ],
+  "scripts": {
+    "test": "npx playwright test",
+    "test:q1": "npx playwright test tests/locked-user.spec.js",
+    "test:q2": "npx playwright test tests/standard-user.spec.js",
+    "test:q3": "npx playwright test tests/performance-user.spec.js",
+    "test:report": "npx playwright show-report",
+    "test:trace": "npx playwright test --trace on",
+    "test:chromium": "npx playwright test --project=chromium",
+    "install:browsers": "npx playwright install",
+    "install:deps": "npx playwright install-deps"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.53.0",
+    "@types/node": "^24.0.3"
+  }
+}
