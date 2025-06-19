@@ -1,0 +1,16 @@
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+# Playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
+# Environment
+.env
+*.env
+
+# IDE (VSCode)
+.vscode/
