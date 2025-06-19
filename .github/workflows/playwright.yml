@@ -1,9 +1,9 @@
 name: Playwright Tests
-on: [push, pull_request]  # Runs on push or PR
+on: [push, pull_request]  
 
 jobs:
   test:
-    runs-on: windows-latest  # Since you use Windows
+    runs-on: windows-latest  
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
