@@ -7,27 +7,30 @@ module.exports = defineConfig({
   
   // CI-specific optimizations:
   retries: process.env.CI ? 2 : 1,
-  workers: process.env.CI ? 2 : undefined,  // Reduced workers for stability
-  //timeout: process.env.CI ? 300000 : 60000, // Longer timeout in CI
+  workers: process.env.CI ? 2 : '50%',  // Use half of available cores locally
+  timeout: 60000, // Global test timeout
   
-  // Enhanced reporting for CI
+  // Reporting configuration
   reporter: process.env.CI ? [
     ['list'],
     ['html', { open: 'never', outputFolder: 'playwright-report' }],
     ['github']
-  ] : 'html',
+  ] : [
+    ['list'],
+    ['html', { open: 'on-failure', outputFolder: 'playwright-report' }]
+  ],
 
   use: {
     baseURL: 'https://www.saucedemo.com',
     
-    // CI-optimized artifacts
+    // Artifacts configuration
     trace: process.env.CI ? 'on-first-retry' : 'on',
     screenshot: process.env.CI ? 'only-on-failure' : 'on',
     video: process.env.CI ? 'retain-on-failure' : 'off',
     
     // Timeouts
-    actionTimeout: 90000,
-    navigationTimeout: 120000,
+    actionTimeout: 30000,      // Consider reducing these
+    navigationTimeout: 45000,  // unless you have specific needs
   },
 
   projects: [
@@ -35,10 +38,13 @@ module.exports = defineConfig({
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'],
-        // CI-specific viewport
-        viewport: process.env.CI ? { width: 1280, height: 720 } : null
+        // Optional: Add any browser launch options if needed
+        // launchOptions: { 
+        //   slowMo: process.env.CI ? 0 : 100 // Slow down for debugging locally
+        // }
       },
     },
+    // Uncomment other browsers as needed
     /*{
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
