@@ -9,36 +9,47 @@ This project demonstrates end-to-end automation testing of a sample e-commerce s
 Automation_Testing_with_Playwright/
 
 │
+
 ├── .github/workflows/ # CI workflow for GitHub Actions
 
-│ └── playwright.yml
+│ 
+└── playwright.yml
 
 │
+
 ├── page-objects/ # Page Object Model files
 
-│ ├── CartPage.js
+│ 
+├── CartPage.js
 
-│ ├── CheckoutPage.js
+│ 
+├── CheckoutPage.js
 
-│ ├── LoginPage.js
+│ 
+├── LoginPage.js
 
-│ └── ProductsPage.js
+│ 
+└── ProductsPage.js
 
 │
 
 ├── tests/ # Playwright test files
 
-│ ├── locked-user.spec.js
+│ 
+├── locked-user.spec.js
 
-│ ├── performance-user.spec.js
+│ 
+├── performance-user.spec.js
 
-│ └── standard-user.spec.js
+│ 
+└── standard-user.spec.js
 
 │
 
 ├── utils/ # Utility functions and test data
 
-│ └── test-data.js
+│ 
+└── test-data.js
 
 │
 
