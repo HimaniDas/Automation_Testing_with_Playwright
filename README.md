@@ -65,7 +65,7 @@ Automation_Testing_with_Playwright/
 
 ## 🔧 Technologies & Tools Used
 
-- [Playwright](https://playwright.dev/)
+- Playwright
 - JavaScript (ES6)
 - Page Object Model (POM) Design
 - GitHub Actions (CI Pipeline)
